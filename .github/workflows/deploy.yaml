@@ -1,4 +1,4 @@
-name: Deploy - convite_formando
+name: Deploy - Convite Formando
 
 on:
   push:
