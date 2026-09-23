@@ -1,11 +1,9 @@
-name: Deploy - Convite Formando
+name: Build and Deploy to GitHub Pages
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch:
-
 
 permissions:
   contents: write
@@ -15,18 +13,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: npm ci
 
-      - name: Build the project
+      - name: Build Project
         run: npm run build
 
       - name: Deploy to GitHub Pages
