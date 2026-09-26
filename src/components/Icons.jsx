@@ -1,4 +1,5 @@
 import iconeDente from "../assets/images/icone_dente.png";
+import { useGraduate } from "../context/GraduateContext";
 
 export const IconWhatsapp = ({ className }) => (
   <svg viewBox="0 0 32 32" className={className} fill="none" stroke="currentColor" strokeWidth="1.6">
@@ -53,3 +54,24 @@ export const IconChevron = ({ className }) => (
 export const IconTooth = ({ className, style }) => (
   <img src={iconeDente} alt="" className={className} style={style} />
 );
+
+// Selo com a logo própria da pessoa (quando ela tiver uma cadastrada em
+// graduates.js), caindo de volta no ícone de dente genérico do template
+// quando não houver. Usado nos pontos "de assinatura" do convite (o selo
+// no topo do Hero e no rodapé) — os padrões decorativos grandes de fundo
+// continuam usando sempre o ícone genérico.
+export const BrandMark = ({ className, fallbackStyle }) => {
+  const { logo, graduate } = useGraduate();
+
+  if (logo) {
+    return (
+      <img
+        src={logo}
+        alt={`Logo — ${graduate.name}`}
+        className={`${className} rounded-full object-cover border-2 border-blush shadow-sm`}
+      />
+    );
+  }
+
+  return <IconTooth className={className} style={fallbackStyle} />;
+};

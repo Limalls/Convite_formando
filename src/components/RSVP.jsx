@@ -1,14 +1,15 @@
 import { useState } from "react";
-import { RSVP } from "../data/event";
+import { useGraduate } from "../context/GraduateContext";
 import { IconWhatsapp, IconCopy, IconCheck, IconTooth } from "./Icons";
 import Reveal from "./Reveal";
 
 export default function RSVPSection() {
+  const { rsvp } = useGraduate();
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(RSVP.pixKey);
+      await navigator.clipboard.writeText(rsvp.pixKey);
       setCopied(true);
       setTimeout(() => setCopied(false), 2200);
     } catch (err) {
@@ -34,8 +35,8 @@ export default function RSVPSection() {
         <Reveal>
           <div className="bg-blush-tint rounded-[28px] p-8 md:p-10 text-left">
             <div className="flex items-center justify-between mb-6">
-              <span className="tracked-caps uppercase text-xs text-blush-deep">{RSVP.priceLabel}</span>
-              <span className="font-display text-2xl text-wine">{RSVP.price}</span>
+              <span className="tracked-caps uppercase text-xs text-blush-deep">{rsvp.priceLabel}</span>
+              <span className="font-display text-2xl text-wine">{rsvp.price}</span>
             </div>
 
             <div className="border-t border-blush/40 pt-6">
@@ -43,7 +44,7 @@ export default function RSVPSection() {
                 Chave PIX (e-mail)
               </span>
               <div className="flex items-center gap-3 bg-white rounded-2xl px-4 py-3.5">
-                <span className="flex-1 text-ink font-medium break-all">{RSVP.pixKey}</span>
+                <span className="flex-1 text-ink font-medium break-all">{rsvp.pixKey}</span>
                 <button
                   onClick={handleCopy}
                   aria-label="Copiar chave PIX"
@@ -53,7 +54,7 @@ export default function RSVPSection() {
                 </button>
               </div>
               <p className="text-sm text-ink-soft mt-2">
-                Titular: {RSVP.pixHolder}
+                Titular: {rsvp.pixHolder}
                 {copied && <span className="text-wine font-medium"> · Chave copiada!</span>}
               </p>
             </div>
@@ -62,7 +63,7 @@ export default function RSVPSection() {
 
         <Reveal className="mt-8">
           <a
-            href={RSVP.whatsappLink}
+            href={rsvp.whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white text-base bg-wine transition-transform hover:-translate-y-0.5 shadow-lg"

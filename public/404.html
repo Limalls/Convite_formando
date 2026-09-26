@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Redirecionando…</title>
+    <script>
+      // O GitHub Pages não sabe servir "/Convite_formando/narija" como um
+      // arquivo real (é uma rota do React). Ele cai aqui (404), e a gente
+      // manda de volta para a página principal guardando o caminho pedido
+      // numa querystring, para o app restaurar a rota certa (ver main.jsx).
+      var basePath = "/Convite_formando/";
+      var fullPath = location.pathname;
+      var relativePath = fullPath.startsWith(basePath)
+        ? fullPath.slice(basePath.length)
+        : fullPath.replace(/^\//, "");
+      var query = location.search
+        ? location.search.replace("?", "") + "&"
+        : "";
+      location.replace(
+        basePath +
+          "?" +
+          query +
+          "redirect=" +
+          encodeURIComponent(relativePath) +
+          location.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>

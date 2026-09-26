@@ -1,14 +1,16 @@
-import { EVENT } from "../data/event";
+import { useGraduate } from "../context/GraduateContext";
 import { IconCalendar, IconClock, IconPin, IconTooth } from "./Icons";
 import Reveal from "./Reveal";
 
-const ITEMS = [
-  { icon: IconCalendar, label: "Data", value: `${EVENT.dateDisplay}`, sub: EVENT.weekday },
-  { icon: IconClock, label: "Horário", value: EVENT.timeDisplay, sub: "Fique de olho, avisaremos em breve" },
-  { icon: IconPin, label: "Local", value: EVENT.venueName, sub: EVENT.venueCity, href: EVENT.mapsLink },
-];
-
 export default function EventDetails() {
+  const { event } = useGraduate();
+
+  const ITEMS = [
+    { icon: IconCalendar, label: "Data", value: `${event.dateDisplay}`, sub: event.weekday },
+    { icon: IconClock, label: "Horário", value: event.timeDisplay, sub: "Fique de olho, avisaremos em breve" },
+    { icon: IconPin, label: "Local", value: event.venueName, sub: event.venueCity, href: event.mapsLink },
+  ];
+
   return (
     <section id="evento" className="relative py-24 md:py-32 px-6 md:px-10 overflow-hidden bg-wine">
       <IconTooth
