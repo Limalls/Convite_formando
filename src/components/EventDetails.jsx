@@ -1,5 +1,5 @@
 import { useGraduate } from "../context/GraduateContext";
-import { IconCalendar, IconClock, IconPin, IconTooth } from "./Icons";
+import { IconCalendar, IconClock, IconPin, IconShirt, IconTooth } from "./Icons";
 import Reveal from "./Reveal";
 
 export default function EventDetails() {
@@ -9,6 +9,9 @@ export default function EventDetails() {
     { icon: IconCalendar, label: "Data", value: `${event.dateDisplay}`, sub: event.weekday },
     { icon: IconClock, label: "Horário", value: event.timeDisplay, sub: "Fique de olho, avisaremos em breve" },
     { icon: IconPin, label: "Local", value: event.venueName, sub: event.venueCity, href: event.mapsLink },
+    ...(event.dressCode
+      ? [{ icon: IconShirt, label: "Dress Code", value: event.dressCode.label, sub: event.dressCode.note }]
+      : []),
   ];
 
   return (
@@ -28,7 +31,7 @@ export default function EventDetails() {
           <h2 className="font-display text-3xl md:text-4xl text-white mb-14">Detalhes da celebração</h2>
         </Reveal>
 
-        <div className="grid sm:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {ITEMS.map((item) => {
             const Icon = item.icon;
             const content = (

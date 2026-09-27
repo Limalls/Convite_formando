@@ -51,9 +51,31 @@ export const IconChevron = ({ className }) => (
   </svg>
 );
 
-export const IconTooth = ({ className, style }) => (
-  <img src={iconeDente} alt="" className={className} style={style} />
+export const IconShirt = ({ className }) => (
+  <svg viewBox="0 0 32 32" className={className} fill="none" stroke="currentColor" strokeWidth="1.6">
+    <path
+      d="M11 5 6 8.5 4 13l4 2v13h16V15l4-2-2-4.5L21 5c0 2.2-2.2 4-5 4s-5-1.8-5-4Z"
+      strokeLinejoin="round"
+      strokeLinecap="round"
+    />
+  </svg>
 );
+
+// Ícone de dente do template. Quando a pessoa tem uma logo própria
+// cadastrada em graduates.js, ele é substituído por ela automaticamente —
+// em TODOS os usos (selo, marcas d'água de fundo, rodapé), sem precisar
+// mexer em cada componente. Quem não tem logo própria (ex: Roberta)
+// continua vendo o ícone genérico normalmente.
+export const IconTooth = ({ className, style }) => {
+  const { logo } = useGraduate();
+  const src = logo || iconeDente;
+  // Filtros como "brightness(0) invert(1)" (usados para deixar o ícone
+  // genérico branco em fundos escuros) não fazem sentido para uma logo
+  // colorida — nesse caso a gente ignora só o filtro e mantém o resto
+  // (opacidade, posição, tamanho) como estava.
+  const finalStyle = logo ? { ...style, filter: "none" } : style;
+  return <img src={src} alt="" className={className} style={finalStyle} />;
+};
 
 // Selo com a logo própria da pessoa (quando ela tiver uma cadastrada em
 // graduates.js), caindo de volta no ícone de dente genérico do template
