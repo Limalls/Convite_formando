@@ -72,12 +72,12 @@ export const GRADUATES = {
     logo: narijaLogo,
     event: EVENT,
     contact: CONTACT,
-    rsvp: {
+       rsvp: {
       price: "R$ 250,00",
       priceLabel: "Senha (valor por convidado)",
       pixKey: "84998685136",
       pixHolder: "Nárija Racnela vieira de alencar",
-      whatsappLink: `https://wa.me/${CONTACT.whatsappNumber}?text=${encodeURIComponent(
+      whatsappLink: `https://wa.me/5584998685136?text=${encodeURIComponent(
         "Olá! Gostaria de confirmar minha presença na formatura da Nárija Racnela (24 de Abril de 2027) e já providenciar o pagamento da senha de R$ 250,00."
       )}`,
     },
