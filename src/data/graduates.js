@@ -4,9 +4,7 @@ import narijaHero from "../assets/images/narija/hero.jpg";
 import narijaAbout from "../assets/images/narija/about.jpg";
 import narijaLogo from "../assets/images/narija/logo.png";
 
-// Dados compartilhados por toda a turma (mesmo evento de formatura).
-// Se algum(a) formando(a) tiver data, local ou contato de pagamento
-// diferentes, é só sobrescrever esses campos dentro do objeto dele(a).
+
 const EVENT = {
   dateDisplay: "24 de Abril de 2027",
   dateShort: "24/04/2027",
@@ -43,9 +41,7 @@ function buildRSVP(graduateName) {
   };
 }
 
-// Adicione uma nova pessoa copiando um bloco abaixo e trocando a chave
-// (o slug, usado na URL: .../roberta, .../narija, .../fulana...),
-// o nome, a citação e as duas fotos (hero = capa, about = seção "A Formanda").
+
 export const GRADUATES = {
   roberta: {
     slug: "roberta",
@@ -76,7 +72,15 @@ export const GRADUATES = {
     logo: narijaLogo,
     event: EVENT,
     contact: CONTACT,
-    rsvp: buildRSVP("Nárija Racnela"),
+    rsvp: {
+      price: "R$ 250,00",
+      priceLabel: "Senha (valor por convidado)",
+      pixKey: "84998685136",
+      pixHolder: "Nárija Racnela vieira de alencar",
+      whatsappLink: `https://wa.me/${CONTACT.whatsappNumber}?text=${encodeURIComponent(
+        "Olá! Gostaria de confirmar minha presença na formatura da Nárija Racnela (24 de Abril de 2027) e já providenciar o pagamento da senha de R$ 250,00."
+      )}`,
+    },
   },
 };
 

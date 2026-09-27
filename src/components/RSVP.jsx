@@ -13,7 +13,6 @@ export default function RSVPSection() {
       setCopied(true);
       setTimeout(() => setCopied(false), 2200);
     } catch (err) {
-      // fallback silencioso — o usuário ainda pode selecionar o texto manualmente
       console.error("Não foi possível copiar automaticamente:", err);
     }
   };
@@ -41,7 +40,7 @@ export default function RSVPSection() {
 
             <div className="border-t border-blush/40 pt-6">
               <span className="tracked-caps uppercase text-xs text-blush-deep block mb-2">
-                Chave PIX (e-mail)
+                Chave PIX
               </span>
               <div className="flex items-center gap-3 bg-white rounded-2xl px-4 py-3.5">
                 <span className="flex-1 text-ink font-medium break-all">{rsvp.pixKey}</span>
