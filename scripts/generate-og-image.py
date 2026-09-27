@@ -1,22 +1,5 @@
 #!/usr/bin/env python3
-"""
-Gera a imagem de prévia (1200x630) usada no WhatsApp/Instagram/etc para um
-novo convite, no mesmo estilo visual do site.
 
-Requer Pillow: pip install Pillow
-
-Exemplo:
-  python3 scripts/generate-og-image.py \
-    --photo src/assets/images/fulana/hero.jpg \
-    --slug fulana \
-    --name "Fulana de Tal" \
-    --course "Odontologia — UNINASSAU" \
-    --date "24 de Abril de 2027" \
-    --venue "Requinte Buffet · Mossoró/RN"
-
-Isso cria public/og/fulana.jpg — depois é só adicionar uma entrada
-correspondente em src/data/social.js (campo image: "og/fulana.jpg").
-"""
 import argparse
 import os
 from PIL import Image, ImageDraw, ImageFont, ImageOps, ImageFilter

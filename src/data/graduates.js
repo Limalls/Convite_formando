@@ -4,7 +4,6 @@ import narijaHero from "../assets/images/narija/hero.jpg";
 import narijaAbout from "../assets/images/narija/about.jpg";
 import narijaLogo from "../assets/images/narija/logo.png";
 
-
 const EVENT = {
   dateDisplay: "24 de Abril de 2027",
   dateShort: "24/04/2027",
@@ -18,6 +17,21 @@ const EVENT = {
     label: "Traje social",
     note: "Pedimos para evitar as cores verde e bordô — são reservadas aos formandos.",
   },
+
+  preEvents: [
+    { title: "Ato Ecumênico", date: "20 | Abril | 2027" },
+    { title: "Aula da Saudade", date: "22 | Abril | 2027" },
+  ],
+};
+
+const ROBERTA_MUSIC = {
+  src: "/Convite_formando/audio/trilha_roberta.mp3",
+  label: "Música do convite",
+};
+
+const NARIJA_MUSIC = {
+  src: "/Convite_formando/audio/trilha.mp3",
+  label: "Música da Nárija",
 };
 
 const CONTACT = {
@@ -41,7 +55,6 @@ function buildRSVP(graduateName) {
   };
 }
 
-
 export const GRADUATES = {
   roberta: {
     slug: "roberta",
@@ -55,6 +68,7 @@ export const GRADUATES = {
     images: { hero: robertaHero, about: robertaAbout },
     event: EVENT,
     contact: CONTACT,
+    music: ROBERTA_MUSIC,
     rsvp: buildRSVP("Roberta Pimenta"),
   },
 
@@ -68,11 +82,12 @@ export const GRADUATES = {
     },
     quote:
       "Cada paciente que sorriu de volta me lembrou por que escolhi esse caminho — hoje esse sonho se realiza.",
-    images: { hero: narijaHero, about: narijaAbout },
+    images: { hero: narijaAbout, about: narijaHero },
     logo: narijaLogo,
     event: EVENT,
     contact: CONTACT,
-       rsvp: {
+    music: NARIJA_MUSIC,
+    rsvp: {
       price: "R$ 250,00",
       priceLabel: "Senha (valor por convidado)",
       pixKey: "84998685136",

@@ -5,12 +5,7 @@ import App, { RootRedirect } from "./App.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import "./index.css";
 
-// --- Suporte a rotas "limpas" (ex: /Convite_formando/narija) no GitHub Pages ---
-// O GitHub Pages só sabe servir arquivos reais; ele não entende que "/narija"
-// deve cair nesse mesmo app. Por isso o public/404.html redireciona qualquer
-// caminho desconhecido de volta para cá, guardando o caminho original numa
-// querystring (?redirect=...). Aqui a gente lê essa querystring e devolve a
-// URL "bonita" antes do React Router decidir o que renderizar.
+
 (function restoreDeepLink() {
   const params = new URLSearchParams(window.location.search);
   const redirect = params.get("redirect");

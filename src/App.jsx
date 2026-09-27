@@ -6,9 +6,11 @@ import NotFound from "./pages/NotFound";
 import Hero from "./components/Hero";
 import Quote from "./components/Quote";
 import About from "./components/About";
+import Schedule from "./components/Schedule";
 import EventDetails from "./components/EventDetails";
 import RSVPSection from "./components/RSVP";
 import Footer from "./components/Footer";
+import MusicPlayer from "./components/MusicPlayer";
 
 function Invite({ data }) {
   useEffect(() => {
@@ -21,9 +23,11 @@ function Invite({ data }) {
         <Hero />
         <Quote />
         <About />
+        <Schedule />
         <EventDetails />
         <RSVPSection />
         <Footer />
+        <MusicPlayer />
       </div>
     </GraduateProvider>
   );

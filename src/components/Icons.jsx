@@ -61,6 +61,19 @@ export const IconShirt = ({ className }) => (
   </svg>
 );
 
+export const IconPlay = ({ className }) => (
+  <svg viewBox="0 0 32 32" className={className} fill="currentColor" stroke="none">
+    <path d="M9 5.5v21l18-10.5Z" strokeLinejoin="round" />
+  </svg>
+);
+
+export const IconPause = ({ className }) => (
+  <svg viewBox="0 0 32 32" className={className} fill="currentColor" stroke="none">
+    <rect x="8" y="5.5" width="6" height="21" rx="1.5" />
+    <rect x="18" y="5.5" width="6" height="21" rx="1.5" />
+  </svg>
+);
+
 // Ícone de dente do template. Quando a pessoa tem uma logo própria
 // cadastrada em graduates.js, ele é substituído por ela automaticamente —
 // em TODOS os usos (selo, marcas d'água de fundo, rodapé), sem precisar

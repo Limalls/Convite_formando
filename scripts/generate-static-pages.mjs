@@ -1,9 +1,4 @@
-// Roda depois do `vite build`. Gera uma pasta estática por pessoa
-// (dist/roberta/index.html, dist/narija/index.html, ...) com as tags de
-// título/descrição/Open Graph já embutidas no HTML puro — isso é o que
-// permite que cada link tenha uma prévia diferente no WhatsApp/Instagram/etc,
-// já que esses apps não executam o JavaScript do React para descobrir o
-// título certo, eles só leem o HTML da primeira resposta do servidor.
+
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";

@@ -37,6 +37,32 @@ A rota `/` (sem slug) redireciona para o convite padrão (`DEFAULT_SLUG`, no
 arquivo `graduates.js`). Qualquer slug que não exista mostra uma tela
 "Convite não encontrado" com links para os convites disponíveis.
 
+## Programação extra (Ato Ecumênico, Aula da Saudade, etc.)
+
+Fica em `event.preEvents`, dentro de `src/data/graduates.js`. É uma lista —
+para adicionar, remover ou renomear uma solenidade, edite esse array:
+
+```js
+preEvents: [
+  { title: "Ato Ecumênico", date: "20 | Abril | 2027" },
+  { title: "Aula da Saudade", date: "22 | Abril | 2027" },
+],
+```
+
+## Música de fundo
+
+1. Coloque o arquivo de áudio em `public/audio/trilha.mp3` (o nome do
+   arquivo pode ser outro, é só ajustar o campo `src` da constante `MUSIC`
+   em `src/data/graduates.js`).
+2. Aparece um botãozinho flutuante no canto da tela para tocar/pausar —
+   por padrão começa pausado (navegadores bloqueiam som automático).
+3. Por padrão a música é a mesma para todo mundo (`MUSIC`, compartilhada).
+   Para uma pessoa ter uma música diferente, adicione um campo `music`
+   dentro do bloco dela, no mesmo padrão do `logo`:
+   ```js
+   music: { src: "/Convite_formando/audio/outra-musica.mp3", label: "Nome da música" },
+   ```
+
 ## Como rodar localmente
 
 Pré-requisitos: [Node.js](https://nodejs.org) 18+ instalado.
