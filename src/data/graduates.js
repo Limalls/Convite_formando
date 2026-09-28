@@ -81,7 +81,7 @@ export const GRADUATES = {
       institution: "UNINASSAU",
     },
     quote:
-      "Cada paciente que sorriu de volta me lembrou por que escolhi esse caminho — hoje esse sonho se realiza.",
+      "O sonho que um dia parecia distante hoje se transforma em realidade. Foram anos de dedicação, desafios e aprendizados que me trouxe até aqui.",
     images: { hero: narijaAbout, about: narijaHero },
     logo: narijaLogo,
     event: EVENT,
