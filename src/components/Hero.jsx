@@ -31,7 +31,7 @@ export default function Hero() {
           <div className="flex justify-center md:justify-start items-center gap-3 mb-6 md:mb-8">
             <BrandMark className="w-10 h-10 md:w-12 md:h-12" />
           </div>
-          <p className="tracked-caps uppercase text-sm md:text-base text-blush mb-3">Convite de Formatura</p>
+          <p className="tracked-caps uppercase text-sm md:text-base text-white md:text-ink font-semibold mb-3">Convite de Formatura</p>
           <h1 className="font-display leading-[1.2] text-[2.4rem] sm:text-5xl md:text-6xl">
             {graduate.name}
           </h1>
