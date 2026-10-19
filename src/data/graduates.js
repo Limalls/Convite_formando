@@ -36,9 +36,10 @@ const EVENT = {
 // abaixo independente de quem estiver vendo o convite. Se quiser uma
 // música diferente para alguém específico, é só criar um objeto `music`
 // dentro do bloco daquela pessoa (mesmo padrão do `logo`).
-const MUSIC = {
-  src: "/Convite_formando/audio/trilha.mp3",
-  label: "Música do convite",
+const MUSICS = {
+  roberta: { src: "/Convite_formando/audio/roberta.mp3", label: "Música da Roberta" },
+  narija:  { src: "/Convite_formando/audio/narija.mp3",  label: "Música da Nárija" },
+  ana:     { src: "/Convite_formando/audio/ana.mp3",     label: "Música da Ana" },
 };
 
 const CONTACT = {
@@ -78,7 +79,7 @@ export const GRADUATES = {
     images: { hero: robertaHero, about: robertaAbout },
     event: EVENT,
     contact: CONTACT,
-    music: MUSIC,
+    music: MUSICS.roberta,
     rsvp: buildRSVP("Roberta Pimenta"),
   },
 
@@ -98,7 +99,7 @@ export const GRADUATES = {
     logo: narijaLogo,
     event: EVENT,
     contact: CONTACT,
-    music: MUSIC,
+    music: MUSICS.narija,
     rsvp: {
       price: "R$ 250,00",
       priceLabel: "Senha (valor por convidado)",
@@ -132,7 +133,7 @@ GRADUATES.ana = {
   logo: anaLogo,
   event: EVENT,
   contact: CONTACT,
-  music: MUSIC,
+  music: MUSICS.ana,
   rsvp: {
     price: "R$ 250,00",
     priceLabel: "Senha (valor por convidado)",
