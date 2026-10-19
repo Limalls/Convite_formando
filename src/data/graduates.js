@@ -139,7 +139,7 @@ GRADUATES.ana = {
     pixKey: "07660466488",
     pixKeyType: "CPF",
     pixHolder: "Ana Newman Alves de Azevedo Queiroz",
-    whatsappLink: `https://wa.me/${ANA_WHATSAPP || CONTACT.whatsappNumber}?text=${encodeURIComponent(
+    whatsappLink: `https://wa.me/558487035688?text=${encodeURIComponent(
       "Olá! Gostaria de confirmar minha presença na formatura da Ana Newman Azevedo (24 de Abril de 2027) e já providenciar o pagamento da senha de R$ 250,00."
     )}`,
   },
