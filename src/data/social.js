@@ -1,3 +1,8 @@
+// Metadados usados SÓ para a prévia de link (WhatsApp, Instagram, etc).
+// Ficam separados de graduates.js porque esse arquivo é lido pelo Node
+// (scripts/generate-static-pages.mjs) fora do Vite, sem poder importar
+// imagens via bundler — por isso o campo `image` é um caminho de arquivo,
+// não um import.
 export const SITE_URL = "https://limalls.github.io/Convite_formando";
 
 export const SOCIAL = {
@@ -12,5 +17,11 @@ export const SOCIAL = {
     description:
       "Nárija Racnela celebra sua formatura em Odontologia (UNINASSAU). 24 de Abril de 2027 — Requinte Buffet, Mossoró/RN.",
     image: "og/narija.jpg",
+  },
+  ana: {
+    title: "Convite de Formatura — Ana Newman Azevedo",
+    description:
+      "Ana Newman Azevedo celebra sua formatura em Odontologia (UNINASSAU). 24 de Abril de 2027 — Requinte Buffet, Mossoró/RN.",
+    image: "og/ana.jpg",
   },
 };

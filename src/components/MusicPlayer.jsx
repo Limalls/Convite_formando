@@ -2,6 +2,9 @@ import { useRef, useState } from "react";
 import { useGraduate } from "../context/GraduateContext";
 import { IconPlay, IconPause } from "./Icons";
 
+// Botão flutuante de música. Fica pausado até a pessoa clicar — navegadores
+// bloqueiam autoplay com som, então tocar só depois de um clique também
+// evita erro no console e garante que funciona em qualquer aparelho.
 export default function MusicPlayer() {
   const { music } = useGraduate();
   const audioRef = useRef(null);
@@ -16,6 +19,7 @@ export default function MusicPlayer() {
       audio.pause();
     } else {
       audio.play().catch(() => {
+        // Se o navegador ainda assim bloquear, a pessoa só clica de novo.
       });
     }
     setPlaying((p) => !p);

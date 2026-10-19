@@ -1,5 +1,22 @@
 #!/usr/bin/env python3
+"""
+Gera a imagem de prévia (1200x630) usada no WhatsApp/Instagram/etc para um
+novo convite, no mesmo estilo visual do site.
 
+Requer Pillow: pip install Pillow
+
+Exemplo:
+  python3 scripts/generate-og-image.py \
+    --photo src/assets/images/fulana/hero.jpg \
+    --slug fulana \
+    --name "Fulana de Tal" \
+    --course "Odontologia — UNINASSAU" \
+    --date "24 de Abril de 2027" \
+    --venue "Requinte Buffet · Mossoró/RN"
+
+Isso cria public/og/fulana.jpg — depois é só adicionar uma entrada
+correspondente em src/data/social.js (campo image: "og/fulana.jpg").
+"""
 import argparse
 import os
 from PIL import Image, ImageDraw, ImageFont, ImageOps, ImageFilter
@@ -50,7 +67,14 @@ def make_card(photo_path, name, course_line, date_line, venue_line, out_path):
     draw.text((tx, ty), "C O N V I T E   D E   F O R M A T U R A",
               font=ImageFont.truetype(FONT_BODY_BOLD, 26), fill=BLUSH)
     ty += 60
-    draw.text((tx, ty), name, font=ImageFont.truetype(FONT_DISPLAY, 58), fill=WHITE)
+    # Reduz a fonte do nome até caber na largura disponível (nomes longos)
+    max_w = W - tx - 50
+    size = 58
+    name_font = ImageFont.truetype(FONT_DISPLAY, size)
+    while draw.textlength(name, font=name_font) > max_w and size > 30:
+        size -= 2
+        name_font = ImageFont.truetype(FONT_DISPLAY, size)
+    draw.text((tx, ty), name, font=name_font, fill=WHITE)
     ty += 90
     draw.text((tx, ty), course_line, font=ImageFont.truetype(FONT_BODY_BOLD, 28), fill=BLUSH_TINT)
     ty += 70
