@@ -36,7 +36,12 @@ export default function RSVPSection() {
           <div className="bg-blush-tint rounded-[28px] p-8 md:p-10 text-left">
             <div className="flex items-center justify-between mb-6">
               <span className="tracked-caps uppercase text-xs text-blush-deep">{rsvp.priceLabel}</span>
-              <span className="font-display text-2xl text-wine">{rsvp.price}</span>
+              <div className="text-right">
+                <span className="font-display text-2xl text-wine block">{rsvp.price}</span>
+                {rsvp.installments && (
+                  <span className="text-sm text-ink-soft block mt-1">{rsvp.installments}</span>
+                )}
+              </div>
             </div>
 
             <div className="border-t border-blush/40 pt-6">
