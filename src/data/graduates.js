@@ -136,7 +136,7 @@ GRADUATES.ana = {
   music: MUSICS.ana,
   rsvp: {
     price: "R$ 250,00",
-    installments: "ou em até 3x sem juros",
+    installments: "ou em até 3x com juros",
     priceLabel: "Senha (valor por convidado)",
     pixKey: "07660466488",
     pixKeyType: "CPF",
