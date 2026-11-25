@@ -165,7 +165,6 @@ GRADUATES.aruza = {
   logo: arLogo,
   event: EVENT,
   contact: CONTACT,
-  music: MUSIC,
   rsvp: {
     price: "R$ 250,00",
     priceLabel: "Senha (valor por convidado)",
