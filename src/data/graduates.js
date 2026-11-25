@@ -6,6 +6,9 @@ import narijaLogo from "../assets/images/narija/logo.png";
 import anaHero from "../assets/images/ana/hero.jpg";
 import anaAbout from "../assets/images/ana/about.jpg";
 import anaLogo from "../assets/images/ana/logo.png";
+import arHero from "../assets/images/aruza/hero.jpg";
+import arAbout from "../assets/images/aruza/about.jpg";
+import arLogo from "../assets/images/aruza/logo.png";
 
 // Dados compartilhados por toda a turma (mesmo evento de formatura).
 // Se algum(a) formando(a) tiver data, local ou contato de pagamento
@@ -36,10 +39,9 @@ const EVENT = {
 // abaixo independente de quem estiver vendo o convite. Se quiser uma
 // música diferente para alguém específico, é só criar um objeto `music`
 // dentro do bloco daquela pessoa (mesmo padrão do `logo`).
-const MUSICS = {
-  roberta: { src: "/Convite_formando/audio/roberta.mp3", label: "Música da Roberta" },
-  narija:  { src: "/Convite_formando/audio/narija.mp3",  label: "Música da Nárija" },
-  ana:     { src: "/Convite_formando/audio/ana.mp3",     label: "Música da Ana" },
+const MUSIC = {
+  src: "/Convite_formando/audio/trilha.mp3",
+  label: "Música do convite",
 };
 
 const CONTACT = {
@@ -79,7 +81,7 @@ export const GRADUATES = {
     images: { hero: robertaHero, about: robertaAbout },
     event: EVENT,
     contact: CONTACT,
-    music: MUSICS.roberta,
+    music: MUSIC,
     rsvp: buildRSVP("Roberta Pimenta"),
   },
 
@@ -99,7 +101,7 @@ export const GRADUATES = {
     logo: narijaLogo,
     event: EVENT,
     contact: CONTACT,
-    music: MUSICS.narija,
+    music: MUSIC,
     rsvp: {
       price: "R$ 250,00",
       priceLabel: "Senha (valor por convidado)",
@@ -133,16 +135,45 @@ GRADUATES.ana = {
   logo: anaLogo,
   event: EVENT,
   contact: CONTACT,
-  music: MUSICS.ana,
+  music: MUSIC,
   rsvp: {
     price: "R$ 250,00",
-    installments: "ou em até 3x com juros",
     priceLabel: "Senha (valor por convidado)",
+    installments: "ou em até 3x sem juros",
     pixKey: "07660466488",
     pixKeyType: "CPF",
     pixHolder: "Ana Newman Alves de Azevedo Queiroz",
-    whatsappLink: `https://wa.me/558487035688?text=${encodeURIComponent(
+    whatsappLink: `https://wa.me/${ANA_WHATSAPP || CONTACT.whatsappNumber}?text=${encodeURIComponent(
       "Olá! Gostaria de confirmar minha presença na formatura da Ana Newman Azevedo (24 de Abril de 2027) e já providenciar o pagamento da senha de R$ 250,00."
+    )}`,
+  },
+};
+
+const ARUZA_WHATSAPP = "5584988168026";
+
+GRADUATES.aruza = {
+  slug: "aruza",
+  graduate: {
+    name: "Aruza Rayana",
+    fullName: "Aruza Rayana",
+    course: "Odontologia",
+    institution: "UNINASSAU",
+  },
+  quote:
+    "Cada sorriso que cuidei me ensinou que a odontologia é, antes de tudo, sobre pessoas — hoje celebro esse sonho com quem caminhou comigo.",
+  images: { hero: arHero, about: arAbout },
+  logo: arLogo,
+  event: EVENT,
+  contact: CONTACT,
+  music: MUSIC,
+  rsvp: {
+    price: "R$ 250,00",
+    priceLabel: "Senha (valor por convidado)",
+    pixKey: "07176043493",
+    pixKeyType: "CPF",
+    pixHolder: "Aruza Rayana",
+    whatsappLink: `https://wa.me/${ARUZA_WHATSAPP}?text=${encodeURIComponent(
+      "Olá! Gostaria de confirmar minha presença na formatura da Aruza Rayana (24 de Abril de 2027) e já providenciar o pagamento da senha de R$ 250,00."
     )}`,
   },
 };

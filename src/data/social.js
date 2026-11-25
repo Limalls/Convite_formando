@@ -24,4 +24,10 @@ export const SOCIAL = {
       "Ana Newman Azevedo celebra sua formatura em Odontologia (UNINASSAU). 24 de Abril de 2027 — Requinte Buffet, Mossoró/RN.",
     image: "og/ana.jpg",
   },
+  aruza: {
+    title: "Convite de Formatura — Aruza Rayana",
+    description:
+      "Aruza Rayana celebra sua formatura em Odontologia (UNINASSAU). 24 de Abril de 2027 — Requinte Buffet, Mossoró/RN.",
+    image: "og/aruza.jpg",
+  },
 };
